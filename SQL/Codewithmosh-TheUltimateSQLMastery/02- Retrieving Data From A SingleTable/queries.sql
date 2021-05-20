@@ -14,6 +14,28 @@ SELECT first_name,
        points * 10 + 100 AS 'special discount'
 FROM customers;
 
+-- Comparison operations
 SELECT *
 FROM customers
 WHERE birth_date > '1990-01-01';
+
+-- Logical operations
+SELECT *
+FROM customers
+WHERE birth_date > '1990-01-01' OR
+      NOT (points > 1000 AND state = 'VA');
+
+-- IN operator
+SELECT *
+FROM customers
+WHERE state = 'VA'
+   OR state = 'GA'
+   or state = 'FL';
+
+SELECT *
+FROM customers
+WHERE state IN ('VA', 'GA', 'FL');
+
+SELECT *
+FROM customers
+WHERE state NOT IN ('VA', 'GA', 'FL');
