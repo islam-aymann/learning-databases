@@ -42,6 +42,7 @@ FROM customers
 WHERE state NOT IN ('VA', 'GA', 'FL');
 
 -- BETWEEN operator
+-- Defines a range
 SELECT *
 FROM customers
 WHERE points >= 1000
@@ -54,3 +55,15 @@ WHERE points BETWEEN 1000 AND 3000;
 SELECT *
 FROM customers
 WHERE birth_date BETWEEN '1990-01-01' AND '2000-01-01';
+
+-- LIKE
+-- Finds a row with a pattern
+SELECT *
+FROM customers
+WHERE last_name LIKE '%f%'; -- find entry that contains letter 'b'
+-- %: any number of characters
+-- _: single character
+-- '%f%': contains 'f'
+-- '%f': endswith 'f'
+-- 'f%': startswith 'f'
+-- '_f': exactly two letters and endswith f
