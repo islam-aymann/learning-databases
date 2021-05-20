@@ -1,5 +1,8 @@
 USE
 sql_store;
+-------------------------------------------------------------------------------
+-- SELECT clause
+-- Retrieves data from tables
 
 SELECT *
 FROM customers
@@ -15,18 +18,27 @@ SELECT first_name,
        points * 10 + 100 AS 'special discount'
 FROM customers;
 
+-------------------------------------------------------------------------------
 -- Comparison operations
+-- <, <=, >, >=, =, !=(<>)
+
 SELECT *
 FROM customers
 WHERE birth_date > '1990-01-01';
 
+-------------------------------------------------------------------------------
 -- Logical operations
+-- AND, OR, NOT
+
 SELECT *
 FROM customers
 WHERE birth_date > '1990-01-01'
    OR NOT (points > 1000 AND state = 'VA');
 
+-------------------------------------------------------------------------------
 -- IN operator
+-- Searches for a match in list of values
+
 SELECT *
 FROM customers
 WHERE state = 'VA'
@@ -41,8 +53,10 @@ SELECT *
 FROM customers
 WHERE state NOT IN ('VA', 'GA', 'FL');
 
+-------------------------------------------------------------------------------
 -- BETWEEN operator
 -- Defines a range
+
 SELECT *
 FROM customers
 WHERE points >= 1000
@@ -56,14 +70,38 @@ SELECT *
 FROM customers
 WHERE birth_date BETWEEN '1990-01-01' AND '2000-01-01';
 
+-------------------------------------------------------------------------------
 -- LIKE
 -- Finds a row with a pattern
-SELECT *
-FROM customers
-WHERE last_name LIKE '%f%'; -- find entry that contains letter 'b'
--- %: any number of characters
--- _: single character
+
+-- find entry that contains letter 'b'
+-- '%': any number of characters
+-- '_': single character
 -- '%f%': contains 'f'
 -- '%f': endswith 'f'
 -- 'f%': startswith 'f'
 -- '_f': exactly two letters and endswith f
+
+SELECT *
+FROM customers
+WHERE last_name LIKE '%f%';
+
+-------------------------------------------------------------------------------
+-- REGEXP
+-- Uses regular expression to search in strings
+-- '^': startswith
+-- '$': end of string
+-- '|': ORing for multiple patterns
+-- '[abc]': string contains any of 'a' or 'b' or 'c'
+-- '[a-h]': string contains any of range from 'a' to 'h'
+
+-- Find all customers whose
+-- last_name contains 'field' or 'mac' or startswith 'rose'
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'field|mac|^rose';
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP '[gim]e';
+-- Returns 'Brushfield' and 'Boagey'
