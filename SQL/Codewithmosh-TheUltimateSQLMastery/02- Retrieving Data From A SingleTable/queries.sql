@@ -105,3 +105,14 @@ SELECT *
 FROM customers
 WHERE last_name REGEXP '[gim]e';
 -- Returns 'Brushfield' and 'Boagey'
+
+-------------------------------------------------------------------------------
+-- NULL
+-- No value
+-- IS NULL: field is empty
+-- ISS NOT NULL: field is not empty
+SELECT *
+FROM orders
+WHERE shipped_date IS NULL;
+
+-------------------------------------------------------------------------------
