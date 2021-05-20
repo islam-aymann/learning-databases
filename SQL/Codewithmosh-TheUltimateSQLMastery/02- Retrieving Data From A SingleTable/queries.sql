@@ -11,6 +11,6 @@ FROM customers;
 SELECT first_name,
        last_name,
        points,
-       points * 10 + 100 AS result
+       points * 10 + 100 AS 'special discount'
 FROM customers;
 
