@@ -1,4 +1,5 @@
-USE sql_store;
+USE
+sql_store;
 
 SELECT *
 FROM customers
@@ -22,15 +23,15 @@ WHERE birth_date > '1990-01-01';
 -- Logical operations
 SELECT *
 FROM customers
-WHERE birth_date > '1990-01-01' OR
-      NOT (points > 1000 AND state = 'VA');
+WHERE birth_date > '1990-01-01'
+   OR NOT (points > 1000 AND state = 'VA');
 
 -- IN operator
 SELECT *
 FROM customers
 WHERE state = 'VA'
    OR state = 'GA'
-   or state = 'FL';
+   OR state = 'FL';
 
 SELECT *
 FROM customers
@@ -39,3 +40,17 @@ WHERE state IN ('VA', 'GA', 'FL');
 SELECT *
 FROM customers
 WHERE state NOT IN ('VA', 'GA', 'FL');
+
+-- BETWEEN operator
+SELECT *
+FROM customers
+WHERE points >= 1000
+  AND points <= 3000;
+
+SELECT *
+FROM customers
+WHERE points BETWEEN 1000 AND 3000;
+
+SELECT *
+FROM customers
+WHERE birth_date BETWEEN '1990-01-01' AND '2000-01-01';
