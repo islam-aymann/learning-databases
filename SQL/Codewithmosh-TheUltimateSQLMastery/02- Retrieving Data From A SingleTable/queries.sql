@@ -14,3 +14,6 @@ SELECT first_name,
        points * 10 + 100 AS 'special discount'
 FROM customers;
 
+SELECT *
+FROM customers
+WHERE birth_date > '1990-01-01';
