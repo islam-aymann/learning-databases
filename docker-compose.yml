@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: very_badPassword
+      MYSQL_DATABASE: codewithmosh
+      MYSQL_USER: islam
+      MYSQL_PASSWORD: very_badPassword
+
+    ports:
+      - "3306:3306"
+
+volumes:
+  db_data: { }
