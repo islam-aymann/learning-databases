@@ -138,3 +138,16 @@ SELECT *, quantity * unit_price AS total_price
 FROM order_items
 WHERE order_id = 2
 ORDER BY quantity * unit_price DESC;
+
+-------------------------------------------------------------------------------
+-- LIMIT clause
+-- Limits the number of the returned rows in a queryset if limit is less than
+-- total count else all queryset rows
+
+SELECT *
+FROM order_items
+LIMIT 3;
+
+SELECT *
+FROM order_items
+LIMIT 6, 3; -- skip first 6 then take 3 rows
