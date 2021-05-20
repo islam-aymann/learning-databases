@@ -116,3 +116,25 @@ FROM orders
 WHERE shipped_date IS NULL;
 
 -------------------------------------------------------------------------------
+-- ORDER BY
+-- Orders the query set by a field
+-- DESC: descending order
+-- ASC: descending order
+
+SELECT *
+FROM customers
+ORDER BY state DESC, first_name DESC;
+
+SELECT first_name, last_name, points % 5 AS new_points
+FROM customers
+ORDER BY new_points, state DESC, first_name DESC;
+
+-- Not preferred
+SELECT first_name, last_name
+FROM customers
+ORDER BY 1, 2; -- column positions
+
+SELECT *, quantity * unit_price AS total_price
+FROM order_items
+WHERE order_id = 2
+ORDER BY quantity * unit_price DESC;
