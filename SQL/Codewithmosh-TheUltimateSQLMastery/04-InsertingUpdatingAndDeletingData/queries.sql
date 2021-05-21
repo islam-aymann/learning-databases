@@ -97,6 +97,6 @@ WHERE client_id IN
 
 -- ----------------------------------------------------------------------------
 -- DELETE clause: deletes row(s) from a given table based on condition
-DELETE FROM invoices
+DELETE
+FROM invoices
 WHERE invoice_id = 1;
-
