@@ -1,7 +1,7 @@
 USE sql_store;
 -- ---------------------------------------------------------------------------
 -- INNER JOIN
--- Joins two table based ON a cONditiON
+-- Joins two table based ON a condition
 -- Order matters
 -- JOIN --> INNER JOIN
 -- LEFT JOIN --> LEFT OUTER JOIN
@@ -19,7 +19,7 @@ SELECT order_id, orders.customer_id, first_name, last_name
 FROM orders
          JOIN customers ON customers.customer_id = orders.customer_id;
 
--- Use abbreviatiON aliases to simplify query
+-- Use abbreviation aliases to simplify query
 SELECT order_id, o.customer_id, first_name, last_name
 FROM orders o
          JOIN customers c ON c.customer_id = o.customer_id;
@@ -79,7 +79,7 @@ WHERE o.customer_id = c.customer_id;
 
 -- LEFT JOIN
 -- Retrieve all records in customers table (left) and join it with the
--- orders table (right) whether the cONditiON is satisfied or not
+-- orders table (right) whether the condition is satisfied or not
 -- i.e. retrieve all customers who have orders or not
 -- customers LEFT JOIN orders or orders RIGHT JOIN customers ==> all customers
 -- customers RIGHT JOIN orders or orders RIGHT LEFT customers ==> all orders
